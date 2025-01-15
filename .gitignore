@@ -1,17 +1,6 @@
-# Ignore all
-*
-
-# Unignore all with extensions
-!*.*
-
-# Unignore all dirs
-!*/
-
 .direnv/
 datasets/
 
-CMakeLists.txt.user
-CMakeLists_modified.txt
 
 Examples/RGB-D/rgbd_tum
 Examples/RGB-D/rgbd_realsense_D435i
@@ -51,6 +40,7 @@ Examples/ROS/ORB_SLAM3/Stereo
 Examples/ROS/ORB_SLAM3/Stereo_Inertial
 
 Examples/Calibration/recorder_realsense_D435i
+Examples/Calibration/recorder_realsense_T265
 
 Examples/Tests/viewer_dataset
 Examples/Tests/sophus_test
@@ -69,7 +59,6 @@ deps/g2o/config.h
 deps/g2o/lib/
 Vocabulary/ORBvoc.txt
 build/
-
 lib/
 
 cmake_modules/
@@ -82,8 +71,6 @@ LBA_Stats.txt
 LocalMapTimeStats.txt
 TrackLocalMapStats.txt
 TrackingTimeStats.txt
-time*
-Time*
 Table_Euroc
 Table_TUMVI_rooms/
 *.pyc
