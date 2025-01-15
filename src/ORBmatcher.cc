@@ -23,9 +23,13 @@
 
 #include<opencv2/core/core.hpp>
 
-#include "Thirdparty/DBoW2/DBoW2/FeatureVector.h"
-
+#include "deps/DBoW2/DBoW2/FeatureVector.h"
+#ifdef __clang__
+#include<stdint.h>
+#else
 #include<stdint-gcc.h>
+#endif
+
 
 using namespace std;
 

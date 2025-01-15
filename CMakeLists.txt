@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.30)
 project(orb-slam3)
 
 IF(NOT CMAKE_BUILD_TYPE)
@@ -6,12 +7,11 @@ ENDIF()
 
 MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall   -O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall   -O3")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-dangling -Wno-unused-function -Wno-dangling-else -Wno-unused-variable -Wno-unused-local-typedef -Wno-unused-private-field -Wno-delete-non-abstract-non-virtual-dtor -Wno-delete-abstract-non-virtual-dtor -Wno-misleading-indentation -Wno-increment-bool -Wno-deprecated-increment-bool -Wno-unused-result -Wno-parentheses-equality -Wno-reorder-ctor -Wno-null-conversion -Wno-injected-class-name -Wno-vla-cxx-extension -Wno-deprecated-declarations -Wno-unused-but-set-variable -O3")
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
 
-# Check C++14 or C++0x support
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
@@ -113,13 +113,15 @@ include/Config.h
 include/Settings.h)
 
 add_subdirectory(deps/g2o)
+file(GLOB DBoW2_LIBRARY "${PROJECT_SOURCE_DIR}/deps/DBoW2/lib/libDBoW2.*")
+file(GLOB g2o_LIBRARY "${PROJECT_SOURCE_DIR}/deps/g2o/lib/libg2o.*")
 
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
 ${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/deps/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/deps/g2o/lib/libg2o.so
+${DBoW2_LIBRARY}
+${g2o_LIBRARY}
 -lboost_serialization
 -lcrypto
 )

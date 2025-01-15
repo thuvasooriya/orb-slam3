@@ -57,7 +57,7 @@
         ++ pkgs.lib.optionals isDarwin [
           # Darwin-specific build tools
           # darwin.apple_sdk.frameworks.Cocoa
-          # darwin.apple_sdk.frameworks.OpenGL
+          darwin.apple_sdk.frameworks.OpenGL
         ];
     };
   in {
@@ -105,9 +105,17 @@
           [
             # development tools
             gcc
+            clang
             cmake
             gnumake
             boost
+            librealsense
+            llvmPackages.openmp
+            # glfw
+            glew
+            openssl
+            # libglvnd
+            # darwin.apple_sdk.frameworks.OpenGL
             # valgrind
           ]
           ++ pkgs.lib.optionals pkgs.stdenv.isLinux [

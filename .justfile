@@ -51,3 +51,17 @@ clean:
     cd deps/Sophus && rm -rf build
     cd deps/g2o && rm -rf build
     cd deps/DBoW2 && rm -rf build
+
+download_dataset_m1:
+    mkdir -p datasets/EuRoC
+    wget http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_01_easy/MH_01_easy.zip -O datasets/EuRoC/MH01.zip
+    unzip datasets/EuRoC/MH01.zip -d datasets/EuRoC/MH01 && rm datasets/EuRoC/MH01.zip
+
+download_dataset_m2:
+    mkdir -p datasets/EuRoC
+    wget -O datasets/EuRoC/MH_02_easy.zip http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_02_easy/MH_02_easy.zip
+    unzip datasets/EuRoC/MH_02_easy.zip -d datasets/EuRoC/MH02 && rm datasets/EuRoC/MH_02_easy.zip
+
+ex1:
+    echo "launching mh01 with monocular sensor"
+    Examples/Monocular/mono_euroc Vocabulary/ORBvoc.txt Examples/Monocular/EuRoC.yaml datasets/EuRoC/MH01 Examples/Monocular/EuRoC_TimeStamps/MH01.txt dataset-MH01_mono
