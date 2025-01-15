@@ -37,6 +37,7 @@
         [
           eigen
           opencv
+          boost
           pangolin
           python3
           python3Packages.numpy
