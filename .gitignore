@@ -8,6 +8,8 @@
 !*/
 
 .direnv/
+datasets/
+
 CMakeLists.txt.user
 CMakeLists_modified.txt
 
@@ -60,11 +62,11 @@ KeyFrameTrajectory.txt
 CameraTrajectory.txt
 kf_*.txt
 f_*.txt
-Thirdparty/DBoW2/build/
-Thirdparty/DBoW2/lib/
-Thirdparty/g2o/build/
-Thirdparty/g2o/config.h
-Thirdparty/g2o/lib/
+deps/DBoW2/build/
+deps/DBoW2/lib/
+deps/g2o/build/
+deps/g2o/config.h
+deps/g2o/lib/
 Vocabulary/ORBvoc.txt
 build/
 
