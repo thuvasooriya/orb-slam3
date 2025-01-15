@@ -90,7 +90,7 @@
           homepage = "https://github.com/thuvasooriya/orb-slam3";
           license = licenses.mit;
           platforms = platforms.unix;
-          maintainers = [];
+          maintainers = [thuvasooriya];
         };
       };
     });
